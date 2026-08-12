@@ -1,9 +1,16 @@
-name: Deploy to Github pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      -main
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
@@ -11,8 +18,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
- 
-      - uses: actions/upload-pages-artificat@v3
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
