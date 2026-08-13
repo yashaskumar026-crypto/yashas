@@ -11,7 +11,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                bat 'docker rm -f cicd-container >nul 2>&1 || exit /b 0'
+                bat 'docker rm -f cicd-container'
                 bat 'docker run -d --name cicd-container -p 8085:80 cicd-demo'
             }
         }
